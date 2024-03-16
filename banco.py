@@ -1,6 +1,10 @@
 import sqlite3 as lite
+import os
+import sys
 
-con = lite.connect('dados.db')
+appdir = getattr(sys, '_MEIPASS', os.path.abspath(os.path.dirname(__file__)))
+
+con = lite.connect(os.path.join(appdir, 'dados.db'))
 
 with con: 
   cur = con.cursor()
